@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matei Dumitrescu </title>
+    <title>Matei Dumitrescu - Student Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -14,40 +14,92 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(17, 153, 142, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(56, 239, 125, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2rem;
+            border-radius: 25px;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             text-align: center;
+            border: 2px solid rgba(17, 153, 142, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 239, 125, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         h1 {
-            font-size: 3rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 0.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.5rem 0 1rem 0;
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.3);
         }
 
         .tagline {
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 1.3rem;
+            color: #555;
             margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .social-links {
@@ -58,85 +110,163 @@
         }
 
         .social-links a {
-            padding: 0.5rem 1.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0.7rem 1.8rem;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
             text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.3);
         }
 
         .social-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(17, 153, 142, 0.5);
         }
 
         .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 25px;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
-
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .skill-item {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(17, 153, 142, 0.2);
             transition: transform 0.3s;
         }
 
-        .skill-item:hover {
-            transform: scale(1.05);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .project-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 2px solid #e0e0e0;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
+        .section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-            border-color: #667eea;
         }
 
-        .project-card h3 {
-            color: #667eea;
+        h2 {
+            color: #11998e;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            border-bottom: 4px solid #11998e;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .about-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .subject-card {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(17, 153, 142, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .subject-card:hover::before {
+            opacity: 1;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(17, 153, 142, 0.5);
+        }
+
+        .subject-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .subject-card h3 {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .activity-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 3px solid #e8f5e9;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .activity-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 20px 0 0 20px;
+            transform: scaleY(0);
+            transition: transform 0.3s;
+        }
+
+        .activity-card:hover::after {
+            transform: scaleY(1);
+        }
+
+        .activity-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(17, 153, 142, 0.3);
+            border-color: #11998e;
+        }
+
+        .activity-card h3 {
+            color: #11998e;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .activity-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
         }
 
         .contact-info {
@@ -148,20 +278,24 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f5f5f5;
-            border-radius: 10px;
-            transition: background 0.3s;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(17, 153, 142, 0.1) 0%, rgba(56, 239, 125, 0.1) 100%);
+            border-radius: 15px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
 
         .contact-item:hover {
-            background: #e8e8e8;
+            background: linear-gradient(135deg, rgba(17, 153, 142, 0.2) 0%, rgba(56, 239, 125, 0.2) 100%);
+            border-color: #11998e;
+            transform: translateX(10px);
         }
 
         .contact-item strong {
-            color: #667eea;
+            color: #11998e;
             min-width: 100px;
+            font-size: 1.1rem;
         }
 
         footer {
@@ -169,15 +303,21 @@
             color: white;
             padding: 2rem;
             margin-top: 2rem;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .projects-grid, .skills-grid {
+            .activities-grid, .subject-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -186,8 +326,8 @@
     <div class="container">
         <header>
             <h1>Matei Dumitrescu</h1>
-            <p class="tagline">Student
-                | Creator | Problem Solver</p>
+            <div class="badge">First Grade Student</div>
+            <p class="tagline">Young Learner | Math & Science Enthusiast | Super Busy Student</p>
             <div class="social-links">
                 <a href="https://github.com/dumitrescumatei23" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
@@ -198,37 +338,55 @@
         <section class="section">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>Hello! I'm Matei Dumitrescu, a passionate developer dedicated to creating innovative solutions and building meaningful projects. I love learning new technologies and tackling challenging problems.</p>
-                <p style="margin-top: 1rem;">Welcome to my corner of the internet where I showcase my work, share my skills, and connect with fellow enthusiasts.</p>
+                <p>Hi there! I'm Matei, a <span class="highlight">first grade student</span> who loves learning new things every day! I'm passionate about <span class="highlight">mathematics and science</span>, and I'm always curious about how things work.</p>
+                <p style="margin-top: 1rem;">School keeps me super busy with homework, projects, and exploring fascinating topics. Even though I have a packed schedule, I make time for the subjects I love and enjoy sharing what I learn!</p>
+                <p style="margin-top: 1rem;">This is my little corner of the internet where I can showcase my journey as a young student and share my interests with the world.</p>
             </div>
         </section>
 
         <section class="section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">HTML/CSS</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">Python</div>
-                <div class="skill-item">Git/GitHub</div>
-                <div class="skill-item">React</div>
-                <div class="skill-item">Node.js</div>
+            <h2>My Favorite Subjects</h2>
+            <div class="subject-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">🔢</div>
+                    <h3>Mathematics</h3>
+                    <p>Numbers, patterns, and problem-solving!</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">🔬</div>
+                    <h3>Science</h3>
+                    <p>Discovering how our world works!</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">📚</div>
+                    <h3>Reading</h3>
+                    <p>Adventures through stories and books!</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">💻</div>
+                    <h3>Technology</h3>
+                    <p>Learning about computers and coding!</p>
+                </div>
             </div>
         </section>
 
         <section class="section">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A description of your first project. What problem does it solve? What technologies did you use?</p>
+            <h2>My School Life</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <span class="emoji">📝</span>
+                    <h3>Homework & Projects</h3>
+                    <p>Always working hard on my assignments and school projects. I love completing challenges and learning something new with every task!</p>
                 </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>A description of your second project. Highlight the key features and your role in development.</p>
+                <div class="activity-card">
+                    <span class="emoji">🎯</span>
+                    <h3>Class Activities</h3>
+                    <p>Participating in class discussions, group work, and hands-on activities that make learning fun and interactive!</p>
                 </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>A description of your third project. Share what you learned and the impact it makes.</p>
+                <div class="activity-card">
+                    <span class="emoji">🌟</span>
+                    <h3>After School</h3>
+                    <p>Between school tasks, I enjoy exploring new topics, playing educational games, and preparing for the next day's adventures!</p>
                 </div>
             </div>
         </section>
@@ -237,22 +395,22 @@
             <h2>Contact</h2>
             <div class="contact-info">
                 <div class="contact-item">
-                    <strong>Email:</strong>
+                    <strong>📧 Email:</strong>
                     <span>your.email@example.com</span>
                 </div>
                 <div class="contact-item">
-                    <strong>Location:</strong>
+                    <strong>📍 Location:</strong>
                     <span>Craiova, Romania</span>
                 </div>
                 <div class="contact-item">
-                    <strong>GitHub:</strong>
+                    <strong>💻 GitHub:</strong>
                     <span>dumitrescumatei23</span>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2025 Matei Dumitrescu. All rights reserved.</p>
+            <p>🌱 © 2025 Matei Dumitrescu - Growing, Learning, and Exploring! 🌱</p>
         </footer>
     </div>
 </body>

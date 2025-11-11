@@ -1,0 +1,30 @@
+:root {
+    /* Colors */
+    --color-primary: #3498db; /* Blue */
+    --color-secondary: #2ecc71; /* Green */
+    --color-accent: #e74c3c; /* Red */
+    --color-background: #ecf0f1; /* Light Gray */
+    --color-text: #2c3e50; /* Dark Gray */
+
+    /* Typography */
+    --font-family-base: 'Helvetica Neue', Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-large: 1.25rem; /* 20px */
+    --font-size-small: 0.875rem; /* 14px */
+    --line-height-base: 1.5;
+
+    /* Spacing */
+    --spacing-unit: 8px;
+    --spacing-small: calc(var(--spacing-unit) * 0.5); /* 4px */
+    --spacing-medium: var(--spacing-unit); /* 8px */
+    --spacing-large: calc(var(--spacing-unit) * 2); /* 16px */
+
+    /* Shadows */
+    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
